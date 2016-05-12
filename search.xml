@@ -4,6 +4,73 @@
   
     
     <entry>
+      <title><![CDATA[伪元素的使用]]></title>
+      <url>http://yoursite.com/2016/05/12/%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[<p>  伪元素是创造关于文档语言能够指定的文档树之外的抽象。  例如文档语言不能提供访问元素内容第一字或者第一行的机制。伪元素允许设计师引用它们，否则这是难以办到的。伪元素还提供样式设计师给在源文档中不存在的内容分配样式（例如：:before和:after能够访问产生的内容）。<br><a id="more"></a></p>
+<h2 id="常用的伪元素的种类"><a href="#常用的伪元素的种类" class="headerlink" title="常用的伪元素的种类"></a>常用的伪元素的种类</h2><ul>
+<li>::before  </li>
+<li>:: after</li>
+<li>::first-line</li>
+<li>::first-letter</li>
+<li>::selector</li>
+</ul>
+<h2 id="伪元素的语法"><a href="#伪元素的语法" class="headerlink" title="伪元素的语法"></a>伪元素的语法</h2><pre><code>p:first-line  
+  {
+  color:#ff0000;  
+  font-variant:small-caps;  
+  }
+</code></pre><h2 id="伪元素的定义"><a href="#伪元素的定义" class="headerlink" title="伪元素的定义"></a>伪元素的定义</h2><p><strong>注释：</strong>“W3C” 列指示出该属性在哪个 CSS 版本中定义（CSS1 还是 CSS2）。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>::first-letter</td>
+<td>向文本的第一个字母添加特殊样式。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>::first-line</td>
+<td>向文本的首行添加特殊样式。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>::before</td>
+<td>在元素之前添加内容</td>
+<td>2</td>
+</tr>
+<tr>
+<td>::after</td>
+<td>在元素之后添加内容</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注释</strong></p>
+<p>“first-line”和”first-letter”可以用于得到属性</p>
+<ul>
+<li>font</li>
+<li>color</li>
+<li>background</li>
+<li>margin</li>
+<li>padding</li>
+<li>border</li>
+<li>text-decoration</li>
+<li>vertical-align (仅当 float 为 none 时)</li>
+<li>text-transform</li>
+<li>line-height</li>
+<li>float</li>
+<li>clear</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[关于前端的思考与感悟]]></title>
       <url>http://yoursite.com/2016/05/12/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E7%9A%84%E6%80%9D%E8%80%83%E4%B8%8E%E6%84%9F%E6%82%9F/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章应该道出很多人的心声了。不急慢慢看，会扣住你的心。5月2号了，5月20号还会远吗？今天我们就来看看由@看不懂未来对前端的感悟与思考。<br><a id="more"></a><br>正文从这开始～</p>
