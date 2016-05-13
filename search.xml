@@ -4,6 +4,78 @@
   
     
     <entry>
+      <title><![CDATA[三分栏的自适应设计]]></title>
+      <url>http://yoursite.com/2016/05/12/%E4%B8%89%E5%88%86%E6%A0%8F%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94%E8%AE%BE%E8%AE%A1/</url>
+      <content type="html"><![CDATA[<p>我们在编辑布局的时候去实现三栏布局，左右两侧随着屏幕的宽度的变化自适应变化，中间的一栏固定宽度不变，我们采用了伪元素的方式来实现。分别采用::befroe和::after伪元素来实现左右两栏的填充，<br><a id="more"></a></p>
+<h2 id="用伪元素实现三栏的流式布局"><a href="#用伪元素实现三栏的流式布局" class="headerlink" title="用伪元素实现三栏的流式布局"></a>用伪元素实现三栏的流式布局</h2><p>具体示例代码如下所示：</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Document&lt;/title&gt;
+&lt;style&gt;
+*{
+    margin: 0;padding: 0
+}
+ul{
+    list-style: none;
+}
+.head{
+    position: fixed;top: 0;width: 100%
+}
+.nav{
+width: 875px;height: 75px;position: relative;
+margin: 0 auto;
+}
+ul{
+background: darkgray;width: 800px;
+float: left;height: 75px
+}
+img{
+    float: left;
+}
+.nav::before{
+    content: &apos;&apos;;
+    width: 100%;
+    height: 75px;
+    position: absolute;
+    left: -100%;background: purple;
+    top: 0
+}
+.nav::after{
+    content: &apos;&apos;;
+    width: 100%;
+    position: absolute;
+    right: -100%;background-color:burlywood;
+    top: 0;
+    height: 75px;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;head&quot;&gt;
+    &lt;div class=&quot;nav&quot;&gt;
+        &lt;div&gt;
+            &lt;img src=&quot;../1.png&quot; alt=&quot;&quot;&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[标签语义化]]></title>
       <url>http://yoursite.com/2016/05/12/%E6%A0%87%E7%AD%BE%E8%AF%AD%E4%B9%89%E5%8C%96/</url>
       <content type="html"></content>
@@ -119,10 +191,144 @@
     <entry>
       <title><![CDATA[git仓库的搭建]]></title>
       <url>http://yoursite.com/2016/05/12/git%E4%BB%93%E5%BA%93%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
-      <content type="html"><![CDATA[<p></p><h2>git仓库的搭建</h2> <a id="more"></a><br> <h3>创建<a href="https://github.com/" target="_blank" rel="external">github</a>账号</h3>  <img src="http://i4.buimg.com/ccf9a78c639294ce.jpg" alt="zhuce"><p></p>
+      <content type="html"><![CDATA[<p>Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。目前，包括Rubinius、Merb和Bitcoin在内的很多知名项目都使用了Git。Git同样可以被诸如Capistrano和Vlad the Deployer这样的部署工具所使用。<br><a id="more"></a></p>
+<p></p><h2>git仓库的搭建</h2> <!--more--><br> <h3>创建<a href="https://github.com/" target="_blank" rel="external">github</a>账号</h3>  <img src="http://i4.buimg.com/ccf9a78c639294ce.jpg" alt="zhuce"><p></p>
 <p></p><h3>新建一个repositories仓库</h3>  <img src="http://i4.buimg.com/0ddd0201c18ef377.jpg"><p></p>
 <p></p><h3>设置ssh-keygen</h3><p></p>
 <p></p><h3>vim获取Keygen</h3><code>$ vim ~/.ssh/id_rsa.pub</code><p></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Phane主题的使用]]></title>
+      <url>http://yoursite.com/2016/05/11/Phane%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[<p>##主题概括<br>acman是一款为Hexo打造的一款扁平化，有着响应式设计的主题。本站正是为该主题设计的演示站点，同时你也可以访问<a href="http://changxinle.github.io/" target="_blank" rel="external">我的博客</a>查看效果。主题源码托管在Github上，欢迎Fork。遇到任何问题或意见请发表issue。<br><a id="more"></a></p>
+<p>##安装指南</p>
+<p>###安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/A-limon/pacman.git themes/pacman</span><br><span class="line">```  </span><br><span class="line">&lt;br&gt;</span><br><span class="line">Pacman需要安装Hexo 2.4.5 或以上版本 请先升级您的Hexo程序，再启用此主题。</span><br><span class="line"></span><br><span class="line">###启用</span><br><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">修改你的博客根目录下的`config.yml`配置文件中的theme属性，将其设置为`pacman`。同时请设置`stylus`属性中的`compress`值为`true`。</span><br><span class="line"></span><br><span class="line">###更新</span><br><span class="line">```  cd themes/pacman      </span><br><span class="line">	git pull</span><br></pre></td></tr></table></figure></p>
+<p>##配置指南</p>
+<p>Pacman主题提供了丰富的配置属性，配置文件<code>_config.yml</code>位于主题根目录下。配置文件中已经包含了详细的英文注释，所以下面就用中文进行说明。</p>
+<p>###属性</p>
+<pre><code>##### Menu
+menu:
+  主页: /
+  存档: /archives
+   # 分类: /tags (or categories)
+
+## you can create `tags` and `categories` folders in `../source`.
+## And create a `index.md` file in each of them.
+## set `front-matter`as
+# layout: tags (or categories)
+# title: tags (or categories)
+## ---
+
+#### Widgets
+widgets: 
+- category
+- tag
+- rss
+## provide six widgets:category,tag,rss,archive,tagcloud,links.
+## modify links in `/layout/_widget/links.ejs`.
+
+#### RSS
+rss: ## RSS address.
+
+#### Image
+imglogo:
+  enable: true             ## display image logo true/    false.
+  src: img/logo.svg        ## `.svg` and `.png` are recommended,please put image into the theme folder `/pacman/source/img`.
+favicon: img/favicon.ico   ## size:32px*32px,`.ico` is recommended,please put image into the theme folder `/pacman/source/img`.     
+apple_icon: img/pacman.jpg ## size:114px*114px,please put image into the theme folder `/pacman/source/img`.
+
+#### Author Avatar Picture
+author_img_enable: true ## display author avatar picture
+dataURI: false
+## if the picture&apos;s format is dataURI please set the value to true,otherwise set the value to false.
+## convert an image into base 64 data URIs http://websemantics.co.uk/online_tools/image_to_data_uri_convertor/ .
+author_img_data: &apos;&apos;
+## paste the dataURI in ONE LINE and included it by &apos;&apos;.
+author_img: img/author.jpg ## size:220px*220px.
+## if the picture&apos;s format is `.png` or `.jpg`  instead of dataURI,you should set the `dataURI` value to false.
+
+#### Font
+ShowCustomFont: true  
+## you can change custom font in `variable.styl` and `font.styl` which in the theme folder `/pacman/source/css`.
+
+#### Toc
+toc:
+article: true   ## show contents in article.
+aside: true     ## show contents in aside.
+## you can set both of the value to true of neither of them.
+## if you don&apos;t want display contents in a specified post,you can modify `front-matter` and add `toc: false`.
+
+#### Fancybox
+fancybox: false 
+## if you use gallery post or want use fancybox please set the value to true.
+## if you want use fancybox in ANY post please copy the file `fancybox.js`.
+## in theme folder `/pacman/scripts` to your hexo blog folder `../scritps`.
+
+#### Author information
+author:
+  google_plus:    ## eg:116338260303228776998 for https://plus.google.com/u/0/116338260303228776998
+  intro_line1: &quot;&quot; ## eg: &quot;Hello ,I&apos;m Larry Page in Google.&quot;
+  intro_line2: &quot;&quot; ## eg: &quot;This is my blog,believe it or not.&quot;
+  weibo:      ## e.g. 436062867 for http://weibo.com/436062867
+  twitter:    ## e.g. yangjiansky for https://twitter.com/yangjiansky
+  github:     ## e.g. A-limon for https://github.com/A-limon
+  facebook:   ## e.g. yangjian for https://favebook.com/yangjian
+  tsina:      ## e.g. 1664838973  Your weibo ID,It will be used in share button.
+  linkedin:   ## e.g. in/jeffweiner08 for https://www.linkedin.com/in/jeffweiner08
+
+#### Comment
+duoshuo: 
+  enable: true  ## duoshuo.com
+  short_name:    ## duoshuo short name.
+
+#### Share button
+jiathis:
+  enable: false ## if you use jiathis as your share tool,the built-in share tool won&apos;t be display.
+  id:    ## e.g. 1501277 your jiathis ID. 
+  tsina: ## e.g. 1664838973 Your weibo id,It will be used in share button.
+
+#### Analytics
+google_analytics:
+  enable: false
+  id:   ## e.g. UA-1766729-8 your google analytics ID.
+  site: ## e.g. yangjian.me your google analytics site or set the value as auto.
+## You MUST upgrade to Universal Analytics first!
+## https://developers.google.com/analytics/devguides/collection/upgrade/?hl=zh_CN
+
+#### Custom Search
+google_cse: 
+  enable: false
+  cx:  ## e.g. 000561263943549425496:mrzrm0gr4kg your Custom Search ID
+## https://www.google.com/cse/ 
+## To enable the custom search You must create a &quot;search&quot; folder in &apos;/source&apos; and a &quot;index.md&quot; file
+## set the &apos;front-matter&apos; as
+## layout: search 
+## title: search
+## ---
+</code></pre><p>###说明</p>
+<ul>
+<li><p>menu 默认没有启用 <code>/tags</code> 和 <code>/categories</code> 页面，如果需要启用请在博客目录下的<code>source</code>文件夹中分别建立<code>tags</code>和 <code>categories</code>文件夹每个文件夹中分别包含一个<code>index.md</code>文件。内容为：</p>
+<pre><code>layout: tags (或categories)
+title: tags (或categories)
+---
+</code></pre></li>
+</ul>
+<p>因为主题中已经内置了这两个页面的模板，所以他们会被正确的解析出来。</p>
+<ul>
+<li>widgets: 提供了6种小工具。</li>
+<li>rss: 请填写你博客的RSS地址。</li>
+<li>imglogo: 建议启用图片logo，格式建议为.svg或.png格式。同时建议提供配套的favicon以及在苹果设备上的图标（背景不要透明）。</li>
+<li>author_img_enable: 是否显示底部的作者头像。主题支持头像使用dataURI格式，若使用请修改dataURI的值为true并在下面的 -author_img_data后填上图片的值，确保它是一行而且被引号包住如果还是想用传统的jpg格式那么就把图片路径放在author_img后，同时把dataURI设置成false。</li>
+<li>ShowCustomFont: 启用自定义字体，如果你有一定前端基础可以修改font.styl替换为你喜欢的字体。</li>
+<li>toc: 是否启用在文章中或侧边栏中的目录功能。二者可以都为true或都为false。同时，如果你希望在特定的某一篇文章中关闭目录功能你可以在文章文件开头中的front-matter中加上一行toc: false。<br>fancybox: 默认关闭，如果你使用Hexo经常发表Gallery类型的文章，那么请设置为true（同时需要复制fancybox.js到你的博客目录下scripts文件夹中）。ps: 我很佩服用Hexo发表相册的文艺青年。</li>
+<li>author: 作者信息，建议尽量填写完整。其中tsina是你的新浪微博ID，不同于用户名或微博主页地址。启用这个属性后，其他用户在微博上分享你文章的同时会自动@你。</li>
+<li>duoshuo: 多说评论系统。在大陆地区更好用的评论系统，如果你想更换为disqus请参考默认主题后自行修改。</li>
+<li>jiathis: 加网分享系统。默认关闭，因为主题已经内置了原生的分享功能。<br>google_analytics: Google Analytics追踪代码。请注意：*Google Analytics已经升级到了Universal Analytics。请先前往后台升级你的Google Analytics版本后再启用追踪代码 更多信息请点击这里了解。</li>
+<li>google_cse: Google自定义搜索。如果开启自定义搜索需要先登录Google CSE，配置好你的站点，并获得此自定义搜索的ID。此外你需要在博客目录下的source文件夹中建立search文件夹并包含一个index.md文件。内容为：  <pre><code><figure class="highlight plain"><figcaption><span>search</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">```  </span><br><span class="line">```title: search  </span><br><span class="line">```  </span><br><span class="line">```---</span><br></pre></td></tr></table></figure>
+</code></pre></li>
+</ul>
 ]]></content>
     </entry>
     
