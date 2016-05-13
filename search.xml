@@ -8,14 +8,15 @@
       <url>http://yoursite.com/2016/05/13/%E5%AE%9E%E7%8E%B0%E6%A1%86%E5%86%85%E7%9A%84%E5%9B%BE%E7%89%87%E5%B1%85%E4%B8%AD%EF%BC%88%E5%95%86%E5%93%81%E5%9B%BE%E7%89%87%E5%B8%B8%E7%94%A8%EF%BC%89/</url>
       <content type="html"><![CDATA[<p>在一些场景中，我们经常要用到对一些未知尺寸的照片进行居中显示，例如购物网站的商品详情图片展示中，这时候要求我们对图片进行处理以适应这个展示窗口；<br><a id="more"></a></p>
 <p>##margin值实现</p>
-<p>我们采用了将图片转化为块标签的方式来用margin值来实现<br> 具体代码下边展示：<br>         <style type="text/css"><br>            *{<br>                margin: 0;<br>                padding: 0;<br>            }<br>            .box{<br>                border: 1px solid black;<br>                height: 300px;<br>                width: 400px;<br>            }</p>
-<pre><code>img{
-    /*margin: 0 auto;*/
-    display: block;
-    margin: 0 auto;
-    height: 100%;
-    width: auto;
-}
+<p>我们采用了将图片转化为块标签的方式来用margin值来实现<br>具体代码下边展示:<br>    <style type="text/css"><br>        *{<br>            margin: 0;<br>            padding: 0;<br>         }<br>        .box{<br>            border: 1px solid black;<br>            height: 300px;<br>            width: 400px;<br>            }</p>
+<pre><code>    img{
+        /*margin: 0 auto;*/
+        display: block;
+        margin: 0 auto;
+        height: 100%;
+        width: auto;
+        }
+&lt;/style&gt;
 </code></pre></style></p>]]></content>
     </entry>
     
