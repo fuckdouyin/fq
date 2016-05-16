@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="图片居中,CSS," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -82,16 +82,15 @@
 
 
 
-<meta name="description" content="在一些场景中，我们经常要用到对一些未知尺寸的照片进行居中显示，例如购物网站的商品详情图片展示中，这时候要求我们对图片进行处理以适应这个展示窗口；">
-<meta property="og:type" content="article">
-<meta property="og:title" content="实现框内的图片居中（商品图片常用）">
-<meta property="og:url" content="http://yoursite.com/2016/05/13/实现框内的图片居中（商品图片常用）/index.html">
+<meta name="description" content="在前端路上的点点滴滴">
+<meta property="og:type" content="website">
+<meta property="og:title" content="在前端">
+<meta property="og:url" content="http://yoursite.com/tags/gulp/index.html">
 <meta property="og:site_name" content="在前端">
-<meta property="og:description" content="在一些场景中，我们经常要用到对一些未知尺寸的照片进行居中显示，例如购物网站的商品详情图片展示中，这时候要求我们对图片进行处理以适应这个展示窗口；">
-<meta property="og:updated_time" content="2016-05-16T02:54:33.000Z">
+<meta property="og:description" content="在前端路上的点点滴滴">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="实现框内的图片居中（商品图片常用）">
-<meta name="twitter:description" content="在一些场景中，我们经常要用到对一些未知尺寸的照片进行居中显示，例如购物网站的商品详情图片展示中，这时候要求我们对图片进行处理以适应这个展示窗口；">
+<meta name="twitter:title" content="在前端">
+<meta name="twitter:description" content="在前端路上的点点滴滴">
 
 
 
@@ -109,7 +108,7 @@
   };
 </script>
 
-  <title> 实现框内的图片居中（商品图片常用） | 在前端 </title>
+  <title> 标签: gulp | 在前端 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -139,7 +138,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -240,175 +239,46 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        gulp
+        <small>标签</small>
+      </h2>
+    </div>
 
     
-      <header class="post-header">
+      
 
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
+            <a class="post-title-link" href="/2016/05/16/gulp及其相关插件的安卓与使用/" itemprop="url">
               
-                实现框内的图片居中（商品图片常用）
+                <span itemprop="name">gulp及其相关插件的安卓与使用</span>
               
-            
-          </h1>
+            </a>
         
+      </h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-13T11:00:48+08:00" content="2016-05-13">
-              2016-05-13
-            </time>
-          </span>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-05-16T19:30:14+08:00"
+              content="2016-05-16" >
+          05-16
+        </time>
+      </div>
 
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/13/实现框内的图片居中（商品图片常用）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/13/实现框内的图片居中（商品图片常用）/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>在一些场景中，我们经常要用到对一些未知尺寸的照片进行居中显示，例如购物网站的商品详情图片展示中，这时候要求我们对图片进行处理以适应这个展示窗口；<br><a id="more"></a></p>
-<h2 id="margin值实现"><a href="#margin值实现" class="headerlink" title="margin值实现"></a>margin值实现</h2><p>我们采用了将图片转化为块标签的方式来用margin值来实现<br>具体代码下边展示:</p>
-<pre><code>&lt;style type=&quot;text/css&quot;&gt;
-    *{
-        margin: 0;
-        padding: 0;
-     }
-    .box{
-        border: 1px solid black;
-        height: 300px;
-        width: 400px;
-        }
-
-    img{
-        /*margin: 0 auto;*/
-        display: block;
-        margin: 0 auto;
-        height: 100%;
-        width: auto;
-        }
-&lt;/style&gt;
-</code></pre>
-      
-    </div>
-
-    <div>
-      
-        
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/图片居中-CSS/" rel="tag">#图片居中,CSS</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/05/12/三分栏的自适应设计/" rel="next" title="三分栏的自适应设计">
-                <i class="fa fa-chevron-left"></i> 三分栏的自适应设计
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/16/gulp及其相关插件的安卓与使用/" rel="prev" title="gulp及其相关插件的安卓与使用">
-                gulp及其相关插件的安卓与使用 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-  <a class="jiathis_button_tsina"></a>
-  <a class="jiathis_button_tqq"></a>
-  <a class="jiathis_button_weixin"></a>
-  <a class="jiathis_button_cqq"></a>
-  <a class="jiathis_button_douban"></a>
-  <a class="jiathis_button_renren"></a>
-  <a class="jiathis_button_qzone"></a>
-  <a class="jiathis_button_kaixin001"></a>
-  <a class="jiathis_button_copy"></a>
-  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-  <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-  var jiathis_config={
-    hideMore:false
-  }
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-      
-    </div>
+    
   </div>
+
+  
 
 
           </div>
@@ -416,14 +286,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/05/13/实现框内的图片居中（商品图片常用）/"
-           data-title="实现框内的图片居中（商品图片常用）" data-url="http://yoursite.com/2016/05/13/实现框内的图片居中（商品图片常用）/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -443,17 +305,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://i4.buimg.com/f8c90cab2ee0f1ac.gif"
@@ -510,17 +363,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#margin值实现"><span class="nav-number">1.</span> <span class="nav-text">margin值实现</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -624,10 +466,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 

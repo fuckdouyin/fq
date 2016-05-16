@@ -4,6 +4,42 @@
   
     
     <entry>
+      <title><![CDATA[gulp及其相关插件的安卓与使用]]></title>
+      <url>http://yoursite.com/2016/05/16/gulp%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E5%8D%93%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[<h2 id="gulp-js-基于流的自动化构建工具"><a href="#gulp-js-基于流的自动化构建工具" class="headerlink" title="gulp.js-基于流的自动化构建工具"></a><a href="http://www.gulpjs.com.cn/" target="_blank" rel="external">gulp.js</a>-基于流的自动化构建工具</h2><a id="more"></a>
+<h2 id="gulp的插件库gulp-jspluginregistry"><a href="#gulp的插件库gulp-jspluginregistry" class="headerlink" title="gulp的插件库gulp.jspluginregistry"></a>gulp的<a href="http://gulpjs.com/plugins/" target="_blank" rel="external">插件库</a>gulp.jspluginregistry</h2><h3 id="gulp插件的安装"><a href="#gulp插件的安装" class="headerlink" title="gulp插件的安装"></a>gulp插件的安装</h3><p>代码如下： </p>
+<pre><code>$ sudo npm install gulp -g 
+</code></pre><p>进入项目的的文件夹后初始化开发依赖的的josn文件：</p>
+<pre><code>$ npm int
+</code></pre><p>然后设置相关配置后进行一些常用插件的安装，如jsmin，cssmin，jsconcat：</p>
+<pre><code>$ npm install gulp-jsmin --save-dev
+</code></pre><p>其他插件的安装和上边一样；</p>
+<h3 id="配置gulp任务和参数"><a href="#配置gulp任务和参数" class="headerlink" title="配置gulp任务和参数"></a>配置gulp任务和参数</h3><p>在目标文件夹中，创建一个叫gulpfile.js的文件</p>
+<p>打开文件编辑，通过gulp.task()来建立任务进程，</p>
+<p>其中三个参数分别是<code>任务名</code>,<code>任务依赖</code>，<code>回调</code>;</p>
+<pre><code>var gulp =require(&apos;gulp&apos;);
+var jsmin = require(&apos;gulp-jsmin&apos;);
+var cssmin    = require(&apos;gulp-cssmin&apos;);
+var concat = require(&apos;gulp-concat&apos;);
+
+gulp.task(&apos;default&apos;,function () {
+console.log(&apos;hahahha&apos;);
+})
+gulp.task(&apos;jsmin&apos;,function(){
+gulp.src(&apos;js/index.js&apos;)
+.pipe(jsmin())
+.pipe(gulp.dest(&apos;desk/index.js&apos;))
+})
+</code></pre><p>gulp.src() </p>
+<pre><code>    目标文件
+gulp.dest
+    目标输出
+pipe()
+    管道，上面的输出就是下面的输入
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[实现框内的图片居中（商品图片常用）]]></title>
       <url>http://yoursite.com/2016/05/13/%E5%AE%9E%E7%8E%B0%E6%A1%86%E5%86%85%E7%9A%84%E5%9B%BE%E7%89%87%E5%B1%85%E4%B8%AD%EF%BC%88%E5%95%86%E5%93%81%E5%9B%BE%E7%89%87%E5%B8%B8%E7%94%A8%EF%BC%89/</url>
       <content type="html"><![CDATA[<p>在一些场景中，我们经常要用到对一些未知尺寸的照片进行居中显示，例如购物网站的商品详情图片展示中，这时候要求我们对图片进行处理以适应这个展示窗口；<br><a id="more"></a></p>
