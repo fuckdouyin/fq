@@ -4,6 +4,141 @@
   
     
     <entry>
+      <title><![CDATA[jade-源于 Node.js的HTML模板引擎]]></title>
+      <url>http://yoursite.com/2016/05/17/jade-%E6%BA%90%E4%BA%8E%20Node.js%20%E7%9A%84%20HTML%20%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/</url>
+      <content type="html"><![CDATA[<h2 id="jade源于-Node-js-的-HTML-模板引擎"><a href="#jade源于-Node-js-的-HTML-模板引擎" class="headerlink" title="jade源于 Node.js 的 HTML 模板引擎"></a><a href="http://www.w3cplus.com/html/jade.html" target="_blank" rel="external">jade</a>源于 Node.js 的 HTML 模板引擎</h2><p>Jade 是一个高性能的模板引擎，它深受 Haml 影响，它是用 JavaScript 实现的，并且可以供 Node 使用。</p>
+<a id="more"></a>
+<p>特性</p>
+<ul>
+<li>客户端支持</li>
+<li>代码高可读</li>
+<li>灵活的缩进</li>
+<li>块展开</li>
+<li>Mixins</li>
+<li>静态包含</li>
+<li>属性改写</li>
+<li>安全，默认代码是转义的</li>
+<li>运行时和编译时上下文错误报告</li>
+<li>命令行下编译jade模板</li>
+<li>HTML5 模式 (使用 !!! 5 文档类型)</li>
+<li>在内存中缓存(可选)</li>
+<li>合并动态和静态标签类</li>
+<li>可以通过 filters 修改树</li>
+<li>模板继承</li>
+<li>原生支持 Express JS</li>
+<li>通过 each 枚举对象、数组甚至是不能枚举的对象</li>
+<li>块注释</li>
+<li>没有前缀的标签</li>
+<li>AST Filters</li>
+<li>过滤器</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>1.初始化项目依赖</p>
+<pre><code>$ npm init 
+</code></pre><p>2.安装作为项目的开发依赖：</p>
+<pre><code>$ npm install gulp --save-dev
+
+$ npm install gulp-jade --save-dev
+
+$ npm install hulp-concat --svae-dev
+</code></pre><p>3,在项目根目录中的gulpflie.js文件中配置：</p>
+<pre><code>var gulp =require(&apos;gulp&apos;);
+var jade = require(&apos;gulp-jade&apos;);
+
+
+gulp.task(&apos;default&apos;,function () {
+gulp.src(&apos;view/*.jade&apos;)
+    .pipe(jade())
+    .pipe(gulp.dest(&apos;desk/html/&apos;));
+});
+</code></pre><h2 id="相关语法"><a href="#相关语法" class="headerlink" title="相关语法"></a>相关语法</h2><h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><p>以p标签为例</p>
+<pre><code>p
+</code></pre><p>会转换为：</p>
+<pre><code>&lt;p&gt;&lt;/p&gt;
+</code></pre><p>jade能自动识别自闭和标签:</p>
+<pre><code>input
+</code></pre><p>会转换为：</p>
+<pre><code>&lt;input/&gt;
+</code></pre><h3 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h3><p>标签中添加文本</p>
+<pre><code>p 欢迎加入wandoujia-fe
+</code></pre><p>会转换为：</p>
+<pre><code>&lt;p&gt;欢迎加入wandoujia-fe&lt;/p&gt;
+</code></pre><p>标签中嵌套标签</p>
+<p>直接跟写html一样就行</p>
+<pre><code>p Welcome to wandoujia fe, we want &lt;b&gt;you&lt;/b&gt;
+</code></pre><p>会转换为：</p>
+<pre><code>&lt;p&gt;Welcome to wandoujia fe, we want &lt;b&gt;you&lt;/b&gt;&lt;/p&gt;
+</code></pre><p>标签中有大段的块内容</p>
+<p>方式一：在标签后面添加 .</p>
+<p>比如一段js代码，注意是script后面有一个.</p>
+<pre><code>script.
+    console.log(&apos;Welcome to join wandoujia-fe&apos;)
+    console.log(&apos;We want you&apos;)
+</code></pre><p>会转换为：</p>
+<pre><code>&lt;script&gt;
+    console.log(&apos;Welcome to join wandoujia-fe&apos;)
+    console.log(&apos;We want you&apos;)
+&lt;/script&gt;
+</code></pre><p>方式二：每段前面添加|</p>
+<pre><code>script
+    | console.log(&apos;Welcome to join wandoujia-fe&apos;)
+    | console.log(&apos;We want you&apos;)
+</code></pre><p>会转换为：</p>
+<pre><code>&lt;script&gt;
+    console.log(&apos;Welcome to join wandoujia-fe&apos;)
+    console.log(&apos;We want you&apos;)
+&lt;/script&gt;
+</code></pre><h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>以 ()来分割属性</p>
+<pre><code>a(rel=&quot;nofollow&quot;, href=&quot;http://www.wandoujia.com/join#getJobInfo=1&quot;) 招聘
+</code></pre><p>会转换为：</p>
+<pre><code>&lt;a rel=&quot;nofollow&quot; href=&quot;http://www.wandoujia.com/join#getJobInfo=1&quot;&gt;招聘&lt;/a&gt;
+</code></pre><h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>单行注释</p>
+<pre><code>// changed by yc-team 
+</code></pre><p>会转换为：</p>
+<pre><code>&lt;!-- changed by yc-team --&gt;
+</code></pre><p>多行注释</p>
+<pre><code>body
+//
+  p 测试代码by yaochun
+</code></pre><p>会转换为：</p>
+<p><body><br><!--p 测试代码by yaochun 
+--><br>    </body><br>不输出的注释</p>
+<p>在单行注释上加一个短横线 -</p>
+<pre><code>//- 这段注释不会输出
+p 文本测试by yaochun
+</code></pre><p>会转换为：</p>
+<pre><code>&lt;p&gt;文本测试by yaochun&lt;/p&gt;
+</code></pre><p>注意： 很多文档里面提到的条件注释已经不再支持</p>
+<h3 id="doctype"><a href="#doctype" class="headerlink" title="doctype"></a>doctype</h3><p>添加一个doctype只需要doctype，然后再跟一个可选的值，默认是html</p>
+<pre><code>doctype html
+</code></pre><p>会转换为：</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+</code></pre><p>注意!!!这种简写的方式已经被抛弃了~<br>可选值还有：</p>
+<ul>
+<li>xml</li>
+<li>transitional</li>
+<li>srict</li>
+<li>frameset</li>
+<li>1.1</li>
+<li>basic</li>
+<li>mobile</li>
+</ul>
+<h3 id="设置id或class"><a href="#设置id或class" class="headerlink" title="设置id或class"></a>设置id或class</h3><p>标签后面跟上<code>#id</code>,<code>.classname</code>，如果没有标签则使用默认标签div</p>
+<pre><code>#content
+p#info
+a.btn
+</code></pre><p>会转换为：</p>
+<pre><code>&lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+&lt;p id=&quot;info&quot;&gt;&lt;/p&gt;   
+&lt;a class=&quot;btn&quot;&gt;&lt;/a&gt;
+1个id和多个class
+</code></pre><p>连着写即可</p>
+<pre><code>a#download-btn.btn.blue-btn
+</code></pre><p>会转换为：</p>
+<pre><code>&lt;a id=&quot;download-btn&quot; class=&quot;btn blue-btn&quot;&gt;&lt;/a&gt;
+</code></pre><h2 id="更多语法部分请查看jade学习"><a href="#更多语法部分请查看jade学习" class="headerlink" title="更多语法部分请查看jade学习"></a>更多语法部分请查看<a href="http://www.w3cplus.com/html/jade.html" target="_blank" rel="external">jade学习</a></h2>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[gulp及其相关插件的安卓与使用]]></title>
       <url>http://yoursite.com/2016/05/16/gulp%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E5%8D%93%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<h2 id="gulp-js-基于流的自动化构建工具"><a href="#gulp-js-基于流的自动化构建工具" class="headerlink" title="gulp.js-基于流的自动化构建工具"></a><a href="http://www.gulpjs.com.cn/" target="_blank" rel="external">gulp.js</a>-基于流的自动化构建工具</h2><a id="more"></a>
