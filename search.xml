@@ -45,6 +45,34 @@ var obj = {
     }
 }
 obj.fn2.call(this,window);
+</code></pre><h3 id="function-函数：1。返回值-2-prototype对象"><a href="#function-函数：1。返回值-2-prototype对象" class="headerlink" title="function 函数：1。返回值 2.prototype对象"></a>function 函数：1。返回值 2.prototype对象</h3><p>所有的对象都有proto属性</p>
+<h3 id="后记。经典面试题"><a href="#后记。经典面试题" class="headerlink" title="后记。经典面试题"></a>后记。经典面试题</h3><pre><code>function Foo(){
+getName = function(){
+    alert(1);
+}
+return this;
+}
+function getName(){
+    alert(5);
+}
+var getName;
+Foo.getName = function(){
+    alert(2);
+}
+Foo.prototype.getName = function(){
+    alert(3);
+}
+getName= function(){
+    alert(4);
+}
+
+Foo.getName();//2
+getName();//4
+Foo().getName();//1
+getName();//1
+new Foo.getName();// 2
+new Foo().getName();// 3
+new new Foo().getName();// 3
 </code></pre>]]></content>
     </entry>
     
