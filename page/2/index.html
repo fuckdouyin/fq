@@ -82,16 +82,15 @@
 
 
 
-<meta name="description" content="主题概括acman是一款为Hexo打造的一款扁平化，有着响应式设计的主题。本站正是为该主题设计的演示站点，同时你也可以访问我的博客查看效果。主题源码托管在Github上，欢迎Fork。遇到任何问题或意见请发表issue。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Phane主题的使用">
-<meta property="og:url" content="http://yoursite.com/2016/05/11/Phane主题的使用/index.html">
+<meta name="description" content="在前端路上的点点滴滴">
+<meta property="og:type" content="website">
+<meta property="og:title" content="在前端">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="在前端">
-<meta property="og:description" content="主题概括acman是一款为Hexo打造的一款扁平化，有着响应式设计的主题。本站正是为该主题设计的演示站点，同时你也可以访问我的博客查看效果。主题源码托管在Github上，欢迎Fork。遇到任何问题或意见请发表issue。">
-<meta property="og:updated_time" content="2016-05-16T13:31:36.000Z">
+<meta property="og:description" content="在前端路上的点点滴滴">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Phane主题的使用">
-<meta name="twitter:description" content="主题概括acman是一款为Hexo打造的一款扁平化，有着响应式设计的主题。本站正是为该主题设计的演示站点，同时你也可以访问我的博客查看效果。主题源码托管在Github上，欢迎Fork。遇到任何问题或意见请发表issue。">
+<meta name="twitter:title" content="在前端">
+<meta name="twitter:description" content="在前端路上的点点滴滴">
 
 
 
@@ -109,7 +108,7 @@
   };
 </script>
 
-  <title> Phane主题的使用 | 在前端 </title>
+  <title> 在前端 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -149,7 +148,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -279,9 +280,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
   
@@ -301,7 +302,10 @@
             
             
               
-                Phane主题的使用
+                
+                <a class="post-title-link" href="/2016/05/11/Phane主题的使用/" itemprop="url">
+                  Phane主题的使用
+                </a>
               
             
           </h1>
@@ -348,143 +352,22 @@
       
 
       
-        <h2 id="主题概括"><a href="#主题概括" class="headerlink" title="主题概括"></a>主题概括</h2><p>acman是一款为Hexo打造的一款扁平化，有着响应式设计的主题。本站正是为该主题设计的演示站点，同时你也可以访问<a href="http://changxinle.github.io/" target="_blank" rel="external">我的博客</a>查看效果。主题源码托管在Github上，欢迎Fork。遇到任何问题或意见请发表issue。<br><a id="more"></a></p>
-<h2 id="安装指南"><a href="#安装指南" class="headerlink" title="安装指南"></a>安装指南</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/A-limon/pacman.git themes/pacman</span><br><span class="line">```  </span><br><span class="line">&lt;br&gt;</span><br><span class="line">Pacman需要安装Hexo 2.4.5 或以上版本 请先升级您的Hexo程序，再启用此主题。</span><br><span class="line"></span><br><span class="line">### 启用</span><br><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">修改你的博客根目录下的`config.yml`配置文件中的theme属性，将其设置为`pacman`。同时请设置`stylus`属性中的`compress`值为`true`。</span><br><span class="line"></span><br><span class="line">### 更新</span><br><span class="line">```  cd themes/pacman      </span><br><span class="line">	git pull</span><br></pre></td></tr></table></figure>
-<h2 id="配置指南"><a href="#配置指南" class="headerlink" title="配置指南"></a>配置指南</h2><p>Pacman主题提供了丰富的配置属性，配置文件<code>_config.yml</code>位于主题根目录下。配置文件中已经包含了详细的英文注释，所以下面就用中文进行说明。</p>
-<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><pre><code>##### Menu
-menu:
-  主页: /
-  存档: /archives
-   # 分类: /tags (or categories)
-
-## you can create `tags` and `categories` folders in `../source`.
-## And create a `index.md` file in each of them.
-## set `front-matter`as
-# layout: tags (or categories)
-# title: tags (or categories)
-## ---
-
-#### Widgets
-widgets: 
-- category
-- tag
-- rss
-## provide six widgets:category,tag,rss,archive,tagcloud,links.
-## modify links in `/layout/_widget/links.ejs`.
-
-#### RSS
-rss: ## RSS address.
-
-#### Image
-imglogo:
-  enable: true             ## display image logo true/    false.
-  src: img/logo.svg        ## `.svg` and `.png` are recommended,please put image into the theme folder `/pacman/source/img`.
-favicon: img/favicon.ico   ## size:32px*32px,`.ico` is recommended,please put image into the theme folder `/pacman/source/img`.     
-apple_icon: img/pacman.jpg ## size:114px*114px,please put image into the theme folder `/pacman/source/img`.
-
-#### Author Avatar Picture
-author_img_enable: true ## display author avatar picture
-dataURI: false
-## if the picture&apos;s format is dataURI please set the value to true,otherwise set the value to false.
-## convert an image into base 64 data URIs http://websemantics.co.uk/online_tools/image_to_data_uri_convertor/ .
-author_img_data: &apos;&apos;
-## paste the dataURI in ONE LINE and included it by &apos;&apos;.
-author_img: img/author.jpg ## size:220px*220px.
-## if the picture&apos;s format is `.png` or `.jpg`  instead of dataURI,you should set the `dataURI` value to false.
-
-#### Font
-ShowCustomFont: true  
-## you can change custom font in `variable.styl` and `font.styl` which in the theme folder `/pacman/source/css`.
-
-#### Toc
-toc:
-article: true   ## show contents in article.
-aside: true     ## show contents in aside.
-## you can set both of the value to true of neither of them.
-## if you don&apos;t want display contents in a specified post,you can modify `front-matter` and add `toc: false`.
-
-#### Fancybox
-fancybox: false 
-## if you use gallery post or want use fancybox please set the value to true.
-## if you want use fancybox in ANY post please copy the file `fancybox.js`.
-## in theme folder `/pacman/scripts` to your hexo blog folder `../scritps`.
-
-#### Author information
-author:
-  google_plus:    ## eg:116338260303228776998 for https://plus.google.com/u/0/116338260303228776998
-  intro_line1: &quot;&quot; ## eg: &quot;Hello ,I&apos;m Larry Page in Google.&quot;
-  intro_line2: &quot;&quot; ## eg: &quot;This is my blog,believe it or not.&quot;
-  weibo:      ## e.g. 436062867 for http://weibo.com/436062867
-  twitter:    ## e.g. yangjiansky for https://twitter.com/yangjiansky
-  github:     ## e.g. A-limon for https://github.com/A-limon
-facebook:   ## e.g. yangjian for https://favebook.com/yangjian
-tsina:      ## e.g. 1664838973  Your weibo ID,It will be used in share button.
-linkedin:   ## e.g. in/jeffweiner08 for https://www.linkedin.com/in/jeffweiner08
-
-#### Comment
-duoshuo: 
-enable: true  ## duoshuo.com
-short_name:    ## duoshuo short name.
-
-#### Share button
-jiathis:
-  enable: false ## if you use jiathis as your share tool,the built-in share tool won&apos;t be display.
-id:    ## e.g. 1501277 your jiathis ID. 
-tsina: ## e.g. 1664838973 Your weibo id,It will be used in share button.
-
-#### Analytics
-google_analytics:
-  enable: false
-  id:   ## e.g. UA-1766729-8 your google analytics ID.
-  site: ## e.g. yangjian.me your google analytics site or set the value as auto.
-## You MUST upgrade to Universal Analytics first!
-## https://developers.google.com/analytics/devguides/collection/upgrade/?hl=zh_CN
-
-#### Custom Search
-google_cse: 
-enable: false
-cx:  ## e.g. 000561263943549425496:mrzrm0gr4kg your Custom Search ID
-## https://www.google.com/cse/ 
-## To enable the custom search You must create a &quot;search&quot; folder in &apos;/source&apos; and a &quot;index.md&quot; file
-## set the &apos;front-matter&apos; as
-## layout: search 
-## title: search
-## ---
-</code></pre><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ul>
-<li><p>menu 默认没有启用 <code>/tags</code> 和 <code>/categories</code> 页面，如果需要启用请在博客目录下的<code>source</code>文件夹中分别建立<code>tags</code>和 <code>categories</code>文件夹每个文件夹中分别包含一个<code>index.md</code>文件。内容为：</p>
-<pre><code>layout: tags (或categories)
-title: tags (或categories)
----
-</code></pre></li>
-</ul>
-<p>因为主题中已经内置了这两个页面的模板，所以他们会被正确的解析出来。</p>
-<ul>
-<li>widgets: 提供了6种小工具。</li>
-<li>rss: 请填写你博客的RSS地址。</li>
-<li>imglogo: 建议启用图片logo，格式建议为.svg或.png格式。同时建议提供配套的favicon以及在苹果设备上的图标（背景不要透明）。</li>
-<li>author_img_enable: 是否显示底部的作者头像。主题支持头像使用dataURI格式，若使用请修改dataURI的值为true并在下面的 -author_img_data后填上图片的值，确保它是一行而且被引号包住如果还是想用传统的jpg格式那么就把图片路径放在author_img后，同时把dataURI设置成false。</li>
-<li>ShowCustomFont: 启用自定义字体，如果你有一定前端基础可以修改font.styl替换为你喜欢的字体。</li>
-<li>toc: 是否启用在文章中或侧边栏中的目录功能。二者可以都为true或都为false。同时，如果你希望在特定的某一篇文章中关闭目录功能你可以在文章文件开头中的front-matter中加上一行toc: false。<br>fancybox: 默认关闭，如果你使用Hexo经常发表Gallery类型的文章，那么请设置为true（同时需要复制fancybox.js到你的博客目录下scripts文件夹中）。ps: 我很佩服用Hexo发表相册的文艺青年。</li>
-<li>author: 作者信息，建议尽量填写完整。其中tsina是你的新浪微博ID，不同于用户名或微博主页地址。启用这个属性后，其他用户在微博上分享你文章的同时会自动@你。</li>
-<li>duoshuo: 多说评论系统。在大陆地区更好用的评论系统，如果你想更换为disqus请参考默认主题后自行修改。</li>
-<li>jiathis: 加网分享系统。默认关闭，因为主题已经内置了原生的分享功能。<br>google_analytics: Google Analytics追踪代码。请注意：*Google Analytics已经升级到了Universal Analytics。请先前往后台升级你的Google Analytics版本后再启用追踪代码 更多信息请点击这里了解。</li>
-<li>google_cse: Google自定义搜索。如果开启自定义搜索需要先登录Google CSE，配置好你的站点，并获得此自定义搜索的ID。此外你需要在博客目录下的source文件夹中建立search文件夹并包含一个index.md文件。内容为：  <pre><code><figure class="highlight plain"><figcaption><span>search</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">```  </span><br><span class="line">```title: search  </span><br><span class="line">```  </span><br><span class="line">```---</span><br></pre></td></tr></table></figure>
-</code></pre></li>
-</ul>
-
-      
-    </div>
-
-    <div>
-      
+        
+          <h2 id="主题概括"><a href="#主题概括" class="headerlink" title="主题概括"></a>主题概括</h2><p>acman是一款为Hexo打造的一款扁平化，有着响应式设计的主题。本站正是为该主题设计的演示站点，同时你也可以访问<a href="http://changxinle.github.io/">我的博客</a>查看效果。主题源码托管在Github上，欢迎Fork。遇到任何问题或意见请发表issue。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/11/Phane主题的使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
 
     <div>
       
-        
+    </div>
 
+    <div>
       
     </div>
 
@@ -492,55 +375,23 @@ title: tags (或categories)
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/12/git仓库的搭建/" rel="prev" title="git仓库的搭建">
-                git仓库的搭建 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
 
       
+      
+        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-  <a class="jiathis_button_tsina"></a>
-  <a class="jiathis_button_tqq"></a>
-  <a class="jiathis_button_weixin"></a>
-  <a class="jiathis_button_cqq"></a>
-  <a class="jiathis_button_douban"></a>
-  <a class="jiathis_button_renren"></a>
-  <a class="jiathis_button_qzone"></a>
-  <a class="jiathis_button_kaixin001"></a>
-  <a class="jiathis_button_copy"></a>
-  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-  <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-  var jiathis_config={
-    hideMore:false
-  }
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-<!-- JiaThis Button END -->
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
-      
-    </div>
-  </div>
 
 
           </div>
@@ -548,14 +399,6 @@ title: tags (或categories)
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/05/11/Phane主题的使用/"
-           data-title="Phane主题的使用" data-url="http://yoursite.com/2016/05/11/Phane主题的使用/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -575,17 +418,8 @@ title: tags (或categories)
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://i4.buimg.com/f8c90cab2ee0f1ac.gif"
@@ -646,17 +480,6 @@ title: tags (或categories)
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主题概括"><span class="nav-number">1.</span> <span class="nav-text">主题概括</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装指南"><span class="nav-number">2.</span> <span class="nav-text">安装指南</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置指南"><span class="nav-number">3.</span> <span class="nav-text">配置指南</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">3.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">3.2.</span> <span class="nav-text">说明</span></a></li></ol></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -760,10 +583,6 @@ title: tags (或categories)
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 

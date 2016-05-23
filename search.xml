@@ -4,6 +4,57 @@
   
     
     <entry>
+      <title><![CDATA[js面向对象编程]]></title>
+      <url>http://yoursite.com/2016/05/23/js%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><h3 id="this的使用总结"><a href="#this的使用总结" class="headerlink" title="this的使用总结"></a>this的使用总结</h3><p>全局作用域直接调用 指向window</p>
+<pre><code>var haha = “哈哈”；
+console.log(this.haha);
+//指向window
+</code></pre><p>普通函数调用</p>
+<pre><code>function fn9 () {
+    this.name = &apos;123&apos;;
+    this.age = &apos;30&apos;;
+}
+window.fn9();
+//指向window
+
+function fn9 () {
+    function heihei(){
+    console.log(this+&apos;heihei&apos;)
+    }
+    console.log(this+&apos;&apos;123);
+}
+window.fn9();
+//指向window
+</code></pre><p>作为对象属性调用 指向该对象</p>
+<pre><code>varv obj = {
+    name:&apos;123&apos;
+    fn3 :function(){
+        console.log(this.name);    
+    }
+}
+obj.fn3();
+//指向该对象
+</code></pre><p>call apply的使用</p>
+<pre><code>var age = 20;
+
+var obj = {
+    age:&quot;18&quot;,
+    fn2:function(){
+        console.log(this.age)
+    }
+}
+obj.fn2.call(this,window);
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[bootstrap的使用]]></title>
+      <url>http://yoursite.com/2016/05/18/bootstrap%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[jade-源于 Node.js的HTML模板引擎]]></title>
       <url>http://yoursite.com/2016/05/17/jade-%E6%BA%90%E4%BA%8E%20Node.js%20%E7%9A%84%20HTML%20%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/</url>
       <content type="html"><![CDATA[<h2 id="jade源于-Node-js-的-HTML-模板引擎"><a href="#jade源于-Node-js-的-HTML-模板引擎" class="headerlink" title="jade源于 Node.js 的 HTML 模板引擎"></a><a href="http://www.w3cplus.com/html/jade.html" target="_blank" rel="external">jade</a>源于 Node.js 的 HTML 模板引擎</h2><p>Jade 是一个高性能的模板引擎，它深受 Haml 影响，它是用 JavaScript 实现的，并且可以供 Node 使用。</p>

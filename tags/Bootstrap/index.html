@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="gulp," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -82,16 +82,15 @@
 
 
 
-<meta name="description" content="gulp.js-基于流的自动化构建工具">
-<meta property="og:type" content="article">
-<meta property="og:title" content="gulp及其相关插件的安卓与使用">
-<meta property="og:url" content="http://yoursite.com/2016/05/16/gulp及其相关插件的安卓与使用/index.html">
+<meta name="description" content="在前端路上的点点滴滴">
+<meta property="og:type" content="website">
+<meta property="og:title" content="在前端">
+<meta property="og:url" content="http://yoursite.com/tags/Bootstrap/index.html">
 <meta property="og:site_name" content="在前端">
-<meta property="og:description" content="gulp.js-基于流的自动化构建工具">
-<meta property="og:updated_time" content="2016-05-16T11:49:11.000Z">
+<meta property="og:description" content="在前端路上的点点滴滴">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="gulp及其相关插件的安卓与使用">
-<meta name="twitter:description" content="gulp.js-基于流的自动化构建工具">
+<meta name="twitter:title" content="在前端">
+<meta name="twitter:description" content="在前端路上的点点滴滴">
 
 
 
@@ -109,7 +108,7 @@
   };
 </script>
 
-  <title> gulp及其相关插件的安卓与使用 | 在前端 </title>
+  <title> 标签: Bootstrap | 在前端 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -149,7 +148,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -280,184 +279,46 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        Bootstrap
+        <small>标签</small>
+      </h2>
+    </div>
 
     
-      <header class="post-header">
+      
 
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
+            <a class="post-title-link" href="/2016/05/18/bootstrap的使用/" itemprop="url">
               
-                gulp及其相关插件的安卓与使用
+                <span itemprop="name">bootstrap的使用</span>
               
-            
-          </h1>
+            </a>
         
+      </h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-16T19:30:14+08:00" content="2016-05-16">
-              2016-05-16
-            </time>
-          </span>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-05-18T09:34:37+08:00"
+              content="2016-05-18" >
+          05-18
+        </time>
+      </div>
 
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/16/gulp及其相关插件的安卓与使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/16/gulp及其相关插件的安卓与使用/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h2 id="gulp-js-基于流的自动化构建工具"><a href="#gulp-js-基于流的自动化构建工具" class="headerlink" title="gulp.js-基于流的自动化构建工具"></a><a href="http://www.gulpjs.com.cn/" target="_blank" rel="external">gulp.js</a>-基于流的自动化构建工具</h2><a id="more"></a>
-<h2 id="gulp的插件库gulp-jspluginregistry"><a href="#gulp的插件库gulp-jspluginregistry" class="headerlink" title="gulp的插件库gulp.jspluginregistry"></a>gulp的<a href="http://gulpjs.com/plugins/" target="_blank" rel="external">插件库</a>gulp.jspluginregistry</h2><h3 id="gulp插件的安装"><a href="#gulp插件的安装" class="headerlink" title="gulp插件的安装"></a>gulp插件的安装</h3><p>代码如下： </p>
-<pre><code>$ sudo npm install gulp -g 
-</code></pre><p>进入项目的的文件夹后初始化开发依赖的的josn文件：</p>
-<pre><code>$ npm int
-</code></pre><p>然后设置相关配置后进行一些常用插件的安装，如jsmin，cssmin，jsconcat：</p>
-<pre><code>$ npm install gulp-jsmin --save-dev
-</code></pre><p>其他插件的安装和上边一样；</p>
-<h3 id="配置gulp任务和参数"><a href="#配置gulp任务和参数" class="headerlink" title="配置gulp任务和参数"></a>配置gulp任务和参数</h3><p>在目标文件夹中，创建一个叫gulpfile.js的文件</p>
-<p>打开文件编辑，通过gulp.task()来建立任务进程，</p>
-<p>其中三个参数分别是<code>任务名</code>,<code>任务依赖</code>，<code>回调</code>;</p>
-<pre><code>var gulp =require(&apos;gulp&apos;);
-var jsmin = require(&apos;gulp-jsmin&apos;);
-var cssmin    = require(&apos;gulp-cssmin&apos;);
-var concat = require(&apos;gulp-concat&apos;);
-
-gulp.task(&apos;default&apos;,function () {
-console.log(&apos;hahahha&apos;);
-})
-gulp.task(&apos;jsmin&apos;,function(){
-gulp.src(&apos;js/index.js&apos;)
-.pipe(jsmin())
-.pipe(gulp.dest(&apos;desk/index.js&apos;))
-})
-</code></pre><p>gulp.src() </p>
-<pre><code>    目标文件
-gulp.dest
-    目标输出
-pipe()
-    管道，上面的输出就是下面的输入
-</code></pre>
-      
-    </div>
-
-    <div>
-      
-        
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/gulp/" rel="tag">#gulp</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/05/13/实现框内的图片居中（商品图片常用）/" rel="next" title="实现框内的图片居中（商品图片常用）">
-                <i class="fa fa-chevron-left"></i> 实现框内的图片居中（商品图片常用）
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/17/jade-源于 Node.js 的 HTML 模板引擎/" rel="prev" title="jade-源于 Node.js的HTML模板引擎">
-                jade-源于 Node.js的HTML模板引擎 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-  <a class="jiathis_button_tsina"></a>
-  <a class="jiathis_button_tqq"></a>
-  <a class="jiathis_button_weixin"></a>
-  <a class="jiathis_button_cqq"></a>
-  <a class="jiathis_button_douban"></a>
-  <a class="jiathis_button_renren"></a>
-  <a class="jiathis_button_qzone"></a>
-  <a class="jiathis_button_kaixin001"></a>
-  <a class="jiathis_button_copy"></a>
-  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-  <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-  var jiathis_config={
-    hideMore:false
-  }
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-      
-    </div>
+    
   </div>
+
+  
 
 
           </div>
@@ -465,14 +326,6 @@ pipe()
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/05/16/gulp及其相关插件的安卓与使用/"
-           data-title="gulp及其相关插件的安卓与使用" data-url="http://yoursite.com/2016/05/16/gulp及其相关插件的安卓与使用/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -492,17 +345,8 @@ pipe()
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://i4.buimg.com/f8c90cab2ee0f1ac.gif"
@@ -563,17 +407,6 @@ pipe()
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#gulp-js-基于流的自动化构建工具"><span class="nav-number">1.</span> <span class="nav-text">gulp.js-基于流的自动化构建工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gulp的插件库gulp-jspluginregistry"><span class="nav-number">2.</span> <span class="nav-text">gulp的插件库gulp.jspluginregistry</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gulp插件的安装"><span class="nav-number">2.1.</span> <span class="nav-text">gulp插件的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置gulp任务和参数"><span class="nav-number">2.2.</span> <span class="nav-text">配置gulp任务和参数</span></a></li></ol></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -677,10 +510,6 @@ pipe()
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 
