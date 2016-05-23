@@ -225,7 +225,8 @@ getName();//最终输出4
     <entry>
       <title><![CDATA[js面向对象编程]]></title>
       <url>http://yoursite.com/2016/05/23/js%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/</url>
-      <content type="html"><![CDATA[<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><h3 id="this的使用总结"><a href="#this的使用总结" class="headerlink" title="this的使用总结"></a>this的使用总结</h3><p>全局作用域直接调用 指向window</p>
+      <content type="html"><![CDATA[<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><p><a href="http://www.kekaoyun.com/33d18274d72e81e7" target="_blank" rel="external"><img src="http://i4.buimg.com/33d18274d72e81e7.jpg"></a></p>
+<h3 id="this的使用总结"><a href="#this的使用总结" class="headerlink" title="this的使用总结"></a>this的使用总结</h3><p>全局作用域直接调用 指向window</p>
 <pre><code>var haha = “哈哈”；
 console.log(this.haha);
 //指向window
