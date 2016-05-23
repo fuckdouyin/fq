@@ -4,6 +4,225 @@
   
     
     <entry>
+      <title><![CDATA[一些蛋疼的JavaScript语法特性面试题]]></title>
+      <url>http://yoursite.com/2016/05/23/%E4%B8%80%E4%BA%9B%E8%9B%8B%E7%96%BC%E7%9A%84JavaScript%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+      <content type="html"><![CDATA[<p>JavaScript有很多地方和我们熟知的C、Java等的编程习惯不同，这些不同会产生很多让人意想不到的事情。前段时间在知乎有人发了写Javascrtip试题，觉得挺好玩的，这里跟大家分享一下。<br><a id="more"></a></p>
+<h3 id="01"><a href="#01" class="headerlink" title="01"></a>01</h3><pre><code>(function () { 
+    return typeof arguments; 
+})(); 
+A. &quot;object&quot;
+B. &quot;array&quot;
+C. &quot;arguments&quot;
+D. &quot;undefined&quot;
+</code></pre><p><code>答案：A</code></p>
+<h3 id="02"><a href="#02" class="headerlink" title="02"></a>02</h3><pre><code>var f = function g() {
+        return 23;
+    };
+typeof g();
+A. &quot;number&quot;
+B. &quot;undefined&quot;
+C. &quot;function&quot;
+D. Eorror
+</code></pre><p><code>答案：D</code></p>
+<h3 id="03"><a href="#03" class="headerlink" title="03"></a>03</h3><pre><code>(function (x) {
+    delete x;
+    return x;
+})(1);
+A. 1
+B. null
+C. undefined
+D. Error
+</code></pre><p><code>答案：A</code></p>
+<h3 id="04"><a href="#04" class="headerlink" title="04"></a>04</h3><pre><code>var y = 1,
+    x = y = typeof x;
+x;
+A. 1
+B. &quot;number&quot;
+C. undefined
+D. &quot;undefined&quot;
+</code></pre><p><code>答案： D</code></p>
+<h3 id="05"><a href="#05" class="headerlink" title="05"></a>05</h3><pre><code>(function f(f) {
+    return typeof f();
+})(function () {
+    return 1;
+});
+A. &quot;number&quot;
+B. &quot;undefined&quot;
+C. &quot;function&quot;
+D. Error
+</code></pre><p><code>答案：A</code></p>
+<h3 id="06"><a href="#06" class="headerlink" title="06"></a>06</h3><pre><code>var foo = {
+    bar: function () {
+        return this.baz;
+    },
+    baz: 1
+};
+(function () {
+    return typeof arguments[0]();
+})(foo.bar);
+A. &quot;undefined&quot;
+B. &quot;object&quot;
+C. &quot;number&quot;
+D. &quot;function&quot;
+</code></pre><p><code>答案：A</code></p>
+<h3 id="07"><a href="#07" class="headerlink" title="07"></a>07</h3><pre><code>var foo = {
+    bar: function () {
+        return this.baz;
+    },
+    baz: 1
+};
+typeof (f = foo.bar)();
+A. &quot;undefined&quot;
+B. &quot;object&quot;
+C. &quot;number&quot;
+D. &quot;function&quot;
+</code></pre><p><code>答案：A</code></p>
+<h3 id="08"><a href="#08" class="headerlink" title="08"></a>08</h3><pre><code>var f = (function f() {
+    return &quot;1&quot;;
+}, function g() {
+    return 2;
+})();
+typeof f;
+A. &quot;string&quot;
+B. &quot;number&quot;
+C. &quot;function&quot;
+D. &quot;undefined&quot;
+</code></pre><p><code>答案： B</code></p>
+<h3 id="09"><a href="#09" class="headerlink" title="09"></a>09</h3><pre><code>var x = 1;
+if (function f() {}) {
+    x += typeof f;
+}
+x;
+A. 1
+B. &quot;1function&quot;
+C. &quot;1undefined&quot;
+D. NaN
+</code></pre><p><code>答案： C</code></p>
+<h3 id="10"><a href="#10" class="headerlink" title="10"></a>10</h3><pre><code>var x = [typeof x, typeof y][1];
+typeof typeof x;
+A. &quot;number&quot;
+B. &quot;string&quot;
+C. &quot;undefined&quot;
+D. &quot;object&quot;
+</code></pre><p><code>答案： B</code></p>
+<h3 id="11"><a href="#11" class="headerlink" title="11"></a>11</h3><pre><code>(function (foo) {
+    return typeof foo.bar;
+})({
+    foo: {
+        bar: 1
+    }
+});
+A、“undefined”
+B、“object”
+C、“number”
+D、Error
+</code></pre><p><code>答案： A</code></p>
+<h3 id="12"><a href="#12" class="headerlink" title="12"></a>12</h3><pre><code>(function f() {
+    function f() {
+        return 1;
+    }
+    return f();
+    function f() {
+        return 2;
+    }
+})();
+A、1
+B、2
+C、Error (e.g. “Too much recursion”)
+D、undefined
+</code></pre><p><code>答案：B</code></p>
+<h3 id="13"><a href="#13" class="headerlink" title="13"></a>13</h3><pre><code>function f() {
+    return f;
+}
+new f() instanceof f;
+A、true
+B、false
+</code></pre><p><code>答案：B</code></p>
+<h3 id="14"><a href="#14" class="headerlink" title="14"></a>14</h3><pre><code>with (function(x, undefined){}) length;
+A、1
+B、2
+C、undefined
+D、Error
+</code></pre><p><code>答案：B</code></p>
+<p>具体答案大家可以自己运行得出，为什么会得出这样的结果，我也有一些不懂的地方，怕误人子弟，所以这里就不解答这里的问题了。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[关于前端的几道经典面试题]]></title>
+      <url>http://yoursite.com/2016/05/23/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E7%9A%84%E5%87%A0%E9%81%93%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+      <content type="html"><![CDATA[<p><br></p>
+<p>前端面试的时候一般会考察你对JavaScript中函数作用域的理解，而且还会考察你对this的理解</p>
+<p>年前刚刚离职了，分享下我曾经出过的一道面试题，此题是我出的一套前端面试题中的最后一题，用来考核面试者的JavaScript的综合能力，很可惜到目前为止的将近两年中，几乎没有人能够完全答对，并非多难只是因为大多面试者过于轻视他。<br><a id="more"></a><br>此题是我综合之前的开发经验以及遇到的JS各种坑汇集而成。此题涉及的知识点众多，包括变量定义提升、this指针指向、运算符优先级、原型、继承、全局变量污染、对象属性及原型属性优先级等等。</p>
+<h2 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h2><pre><code>function Foo(){
+    getName = function(){
+        alert(1);
+    }
+    return this;
+}
+function getName(){
+    alert(5);
+}
+var getName;
+Foo.getName = function(){
+    alert(2);
+}
+Foo.prototype.getName = function(){
+    alert(3);
+}
+getName= function(){
+    alert(4);
+}
+
+Foo.getName();//2
+getName();//4
+Foo().getName();//1
+getName();//1
+new Foo.getName();// 2
+new Foo().getName();// 1 || 3
+new new Foo().getName();//1 || 3
+</code></pre><h3 id="变量声明提升"><a href="#变量声明提升" class="headerlink" title="变量声明提升"></a>变量声明提升</h3><p>例如下边代码：</p>
+<pre><code>console.log(&apos;x&apos; in window);//true
+var x;
+x = 0; 
+</code></pre><p>代码执行时js引擎沪江声明语句提升到代码最上方，变为：</p>
+<pre><code>var x;
+console.log(&apos;x&apos; in window);//true
+x = 0;
+</code></pre><h3 id="函数表达式"><a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h3><p>var getName 与 function getName 都是声明语句，区别在于 var getName 是函数表达式，而 function getName 是函数声明。关于JS中的各种函数创建方式可以看 <a href="http://www.codeceo.com/article/javascript-closure-interview.html" target="_blank" rel="external">大部分人都会做错的经典JS闭包面试题</a>这篇文章有详细说明。</p>
+<p>函数表达式的最大问题就是在于js会将此代码拆分成两行代码分别执行。<br>例如：</p>
+<pre><code>console.log(x);//输出：function x(){}
+var x=1;
+function x(){}
+</code></pre><p>实际执行的代码为，先将 var x=1 拆分为 var x; 和 x = 1; 两行，再将 var x; 和 function x(){} 两行提升至最上方变成：</p>
+<pre><code>var x;
+x=1;
+function x(){}；
+console.log(x);
+</code></pre><p>同理，原题中代码最终执行时的是：</p>
+<pre><code>function Foo() {
+    getName = function () { alert (1); };
+    return this;
+}
+var getName;//只提升变量声明
+function getName() { alert (5);}//提升函数声明，覆盖var的声明
+
+Foo.getName = function () { alert (2);};
+Foo.prototype.getName = function () { alert (3);};
+getName = function () { alert (4);};//最终的赋值再次覆盖function     getName声明
+
+getName();//最终输出4
+</code></pre><h3 id="js运算符优先级"><a href="#js运算符优先级" class="headerlink" title="js运算符优先级:"></a>js运算符优先级:</h3><p><a href="http://www.kekaoyun.com/2e1fed9cf8691bf9" target="_blank" rel="external"><img src="http://i4.buimg.com/2e1fed9cf8691bf9.png"></a></p>
+<h3 id="构造函数的返回值"><a href="#构造函数的返回值" class="headerlink" title="构造函数的返回值"></a>构造函数的返回值</h3><p>传统语言中，构造函数不应该有返回值，实际执行的返回值就是此构造函数的实例化对象。</p>
+<p>而在js中构造函数可以有返回值也可以没有。</p>
+<h4 id="1、没有返回值则按照其他语言一样返回实例化对象"><a href="#1、没有返回值则按照其他语言一样返回实例化对象" class="headerlink" title="1、没有返回值则按照其他语言一样返回实例化对象"></a>1、没有返回值则按照其他语言一样返回实例化对象</h4><h4 id="2、若有返回值则检查其返回值是否为引用类型。"><a href="#2、若有返回值则检查其返回值是否为引用类型。" class="headerlink" title="2、若有返回值则检查其返回值是否为引用类型。"></a>2、若有返回值则检查其返回值是否为引用类型。</h4><p>如果是非引用类型，如基本类型（string,number,boolean,null,undefined）则与无返回值相同，实际返回其实例化对象。</p>
+<h4 id="3、如果返回值是引用类型，则实际返回值-为这个引用类型"><a href="#3、如果返回值是引用类型，则实际返回值-为这个引用类型" class="headerlink" title="3、如果返回值是引用类型，则实际返回值 为这个引用类型"></a>3、如果返回值是引用类型，则实际返回值 为这个引用类型</h4><p>原题中，返回的是this，而this在构造函数中本来就代表当前实例化对象，遂最终Foo函数返回实例化对象。</p>
+<p>之后调用实例化对象的getName函数，因为在Foo构造函数中没有为实例化对象添加任何属性，遂到当前对象的原型对象（prototype）中寻找getName，找到了。</p>
+<p>遂最终输出3。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[js面向对象编程]]></title>
       <url>http://yoursite.com/2016/05/23/js%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/</url>
       <content type="html"><![CDATA[<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><h3 id="this的使用总结"><a href="#this的使用总结" class="headerlink" title="this的使用总结"></a>this的使用总结</h3><p>全局作用域直接调用 指向window</p>
