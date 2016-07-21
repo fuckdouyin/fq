@@ -4,6 +4,129 @@
   
     
     <entry>
+      <title><![CDATA[如何做到jQuery-free?]]></title>
+      <url>http://yoursite.com/2016/06/21/%E5%A6%82%E4%BD%95%E5%81%9A%E5%88%B0jQuery-free/</url>
+      <content type="html"><![CDATA[<h1 id="如何做到-jQuery-free？"><a href="#如何做到-jQuery-free？" class="headerlink" title="如何做到 jQuery-free？"></a>如何做到 jQuery-free？</h1><p>jQuery是现在最流行的JavaScript工具库。</p>
+<p>据统计，目前全世界57.3%的网站使用它。也就是说，10个网站里面，有6个使用jQuery。如果只考察使用工具库的网站，这个比例就会上升到惊人的91.7%。</p>
+<p>虽然jQuery如此受欢迎，但是它臃肿的体积也让人头痛不已。jQuery 2.0的原始大小为235KB，优化后为81KB；如果是支持IE6、7、8的jQuery 1.8.3，原始大小为261KB，优化后为91KB。</p>
+<p>这样的体积，即使是宽带环境，完全加载也需要1秒或更长，更不要说移动设备了。这意味着，如果你使用了jQuery，用户至少延迟1秒，才能看到网页效果。考虑到本质上，jQuery只是一个操作DOM的工具，我们不仅要问：如果只是为了几个网页特效，是否有必要动用这么大的库？<br><a id="more"></a></p>
+<p>2006年，jQuery诞生的时候，主要用于消除不同浏览器的差异（主要是IE6），为开发者提供一个简洁的统一接口。相比当时，如今的情况已经发生了很大的变化。IE的市场份额不断下降，以ECMAScript为基础的JavaScript标准语法，正得到越来越广泛的支持。开发者直接使用JavScript标准语法，就能同时在各大浏览器运行，不再需要通过jQuery获取兼容性。</p>
+<p>下面就探讨如何用JavaScript标准语法，取代jQuery的一些主要功能，做到jQuery-free。</p>
+<h2 id="一、选取DOM元素"><a href="#一、选取DOM元素" class="headerlink" title="一、选取DOM元素"></a>一、选取DOM元素</h2><p>jQuery的核心是通过各种选择器，选中DOM元素，可以用querySelectorAll方法模拟这个功能。<br>　　var $ = document.querySelectorAll.bind(document);<br>这里需要注意的是，querySelectorAll方法返回的是NodeList对象，它很像数组（有数字索引和length属性），但不是数组，不能使用pop、push等数组特有方法。如果有需要，可以考虑将Nodelist对象转为数组。<br>　　myList = Array.prototype.slice.call(myNodeList);</p>
+<h2 id="二、DOM操作"><a href="#二、DOM操作" class="headerlink" title="二、DOM操作"></a>二、DOM操作</h2><p>DOM本身就具有很丰富的操作方法，可以取代jQuery提供的操作方法。<br>尾部追加DOM元素。</p>
+<pre><code>// jQuery写法
+$(parent).append($(child));
+// DOM写法
+parent.appendChild(child)
+</code></pre><p>头部插入DOM元素。</p>
+<pre><code>// jQuery写法
+$(parent).prepend($(child));
+parent.insertBefore(child, parent.childNodes[0])
+</code></pre><p>删除DOM元素。</p>
+<pre><code>// jQuery写法
+$(child).remove()
+// DOM写法
+child.parentNode.removeChild(child)
+</code></pre><h2 id="三、事件的监听"><a href="#三、事件的监听" class="headerlink" title="三、事件的监听"></a>三、事件的监听</h2><p>jQuery的on方法，完全可以用addEventListener模拟。</p>
+<pre><code>Element.prototype.on = Element.prototype.addEventListener;
+</code></pre><p>为了使用方便，可以在NodeList对象上也部署这个方法。</p>
+<pre><code>NodeList.prototype.on = function (event, fn) {
+　　[][&apos;forEach&apos;].call(this, function (el) {
+　　　　el.on(event, fn);
+　　});
+　return this;
+};
+</code></pre><p>四、事件的触发<br>jQuery的trigger方法则需要单独部署，相对复杂一些。</p>
+<pre><code>Element.prototype.trigger = function (type, data) {
+　　var event = document.createEvent(&apos;HTMLEvents&apos;);
+　event.initEvent(type, true, true);
+　　event.data = data || {};
+　　event.eventName = type;
+　　event.target = this;
+  　this.dispatchEvent(event);
+    　return this;
+};
+</code></pre><p>在NodeList对象上也部署这个方法。</p>
+<pre><code>NodeList.prototype.trigger = function (event) {
+　　[][&apos;forEach&apos;].call(this, function (el) {
+　　　el[&apos;trigger&apos;](event);
+　});
+　　return this;
+};
+</code></pre><h2 id="五、document-ready"><a href="#五、document-ready" class="headerlink" title="五、document.ready"></a>五、document.ready</h2><p>目前的最佳实践，是将JavaScript脚本文件都放在页面底部加载。这样的话，其实document.ready方法（jQuery简写为$(function)）已经不必要了，因为等到运行的时候，DOM对象已经生成了。</p>
+<h2 id="六、attr方法"><a href="#六、attr方法" class="headerlink" title="六、attr方法"></a>六、attr方法</h2><p>jQuery使用attr方法，读写网页元素的属性。</p>
+<pre><code>$(&quot;#picture&quot;).attr(&quot;src&quot;, &quot;http://url/to/image&quot;);
+</code></pre><p>DOM元素允许直接读取属性值，写法要简洁许多。</p>
+<pre><code>$(&quot;#picture&quot;).src = &quot;http://url/to/image&quot;;
+</code></pre><p>需要注意，input元素的this.value返回的是输入框中的值，链接元素的this.href返回的是绝对URL。如果需要用到这两个网页元素的属性准确值，可以用</p>
+<pre><code>this.getAttribute(&apos;value&apos;)和this.getAttibute(&apos;href&apos;)。
+</code></pre><h2 id="七、addClass方法"><a href="#七、addClass方法" class="headerlink" title="七、addClass方法"></a>七、addClass方法</h2><p>jQuery的addClass方法，用于为DOM元素添加一个class。</p>
+<pre><code>$(&apos;body&apos;).addClass(&apos;hasJS&apos;);
+</code></pre><p>DOM元素本身有一个可读写的className属性，可以用来操作class。</p>
+<pre><code>document.body.className = &apos;hasJS&apos;;
+// or
+document.body.className += &apos; hasJS&apos;;
+</code></pre><p>HTML 5还提供一个classList对象，功能更强大（IE 9不支持）。</p>
+<pre><code>document.body.classList.add(&apos;hasJS&apos;);
+document.body.classList.remove(&apos;hasJS&apos;);
+document.body.classList.toggle(&apos;hasJS&apos;);
+document.body.classList.contains(&apos;hasJS&apos;);
+</code></pre><h2 id="八、CSS"><a href="#八、CSS" class="headerlink" title="八、CSS"></a>八、CSS</h2><p>jQuery的css方法，用来设置网页元素的样式。</p>
+<pre><code>$(node).css( &quot;color&quot;, &quot;red&quot; );
+</code></pre><p>DOM元素有一个style属性，可以直接操作。</p>
+<pre><code>element.style.color = &quot;red&quot;;;
+// or
+element.style.cssText += &apos;color:red&apos;;
+</code></pre><h2 id="九、数据储存"><a href="#九、数据储存" class="headerlink" title="九、数据储存"></a>九、数据储存</h2><p>jQuery对象可以储存数据。</p>
+<pre><code>$(&quot;body&quot;).data(&quot;foo&quot;, 52);
+</code></pre><p>HTML 5有一个dataset对象，也有类似的功能（IE 10不支持），不过只能保存字符串。</p>
+<pre><code>element.dataset.user = JSON.stringify(user);
+element.dataset.score = score;
+</code></pre><h2 id="十、Ajax"><a href="#十、Ajax" class="headerlink" title="十、Ajax"></a>十、Ajax</h2><p>jQuery的Ajax方法，用于异步操作。</p>
+<pre><code>$.ajax({
+　　type: &quot;POST&quot;,
+　　url: &quot;some.php&quot;,
+　　data: { name: &quot;John&quot;, location: &quot;Boston&quot; }
+}).done(function( msg ) {
+　　alert( &quot;Data Saved: &quot; + msg );
+});
+</code></pre><p>我们可以定义一个request函数，模拟Ajax方法。</p>
+<pre><code>function request(type, url, opts, callback) {
+　　var xhr = new XMLHttpRequest();
+　　if (typeof opts === &apos;function&apos;) {
+　　　　callback = opts;
+　　　　opts = null;
+　　}
+　　xhr.open(type, url);
+　　var fd = new FormData();
+　　if (type === &apos;POST&apos; &amp;&amp; opts) {
+　　　　for (var key in opts) {
+　　　　　　fd.append(key, JSON.stringify(opts[key]));
+　　　　}
+　　}
+　　xhr.onload = function () {
+　　　　callback(JSON.parse(xhr.response));
+　　};
+　　xhr.send(opts ? fd : null);
+}
+</code></pre><p>然后，基于request函数，模拟jQuery的get和post方法。</p>
+<pre><code>var get = request.bind(this, &apos;GET&apos;);
+var post = request.bind(this, &apos;POST&apos;);
+</code></pre><p>　　## 十一、动画<br>jQuery的animate方法，用于生成动画效果。</p>
+<pre><code>$foo.animate(&apos;slow&apos;, { x: &apos;+=10px&apos; })；
+</code></pre><p>jQuery的动画效果，很大部分基于DOM。但是目前，CSS 3的动画远比DOM强大，所以可以把动画效果写进CSS，然后通过操作DOM元素的class，来展示动画。</p>
+<pre><code>foo.classList.add(&apos;animate&apos;)；
+</code></pre><p>如果需要对动画使用回调函数，CSS 3也定义了相应的事件。</p>
+<pre><code>el.addEventListener(&quot;webkitTransitionEnd&quot;, transitionEnded);
+el.addEventListener(&quot;transitionend&quot;, transitionEnded);
+</code></pre><h2 id="十二、替代方案"><a href="#十二、替代方案" class="headerlink" title="十二、替代方案"></a>十二、替代方案</h2><p>由于jQuery体积过大，替代方案层出不穷。</p>
+<p>其中，最有名的是zepto.js。它的设计目标是以最小的体积，做到最大兼容jQuery的API。zepto.js 1.0版的原始大小是55KB，优化后是29KB，gzip压缩后为10KB。<br>如果不求最大兼容，只希望模拟jQuery的基本功能，那么，min.js优化后只有200字节，而dolla优化后是1.7KB。</p>
+<p>此外，jQuery本身采用模块设计，可以只选择使用自己需要的模块。具体做法参见它的github网站，或者使用专用的Web界面。</p>
+<h2 id="十三、参考链接"><a href="#十三、参考链接" class="headerlink" title="十三、参考链接"></a>十三、参考链接</h2><p>　　- Remy Sharp，I know jQuery. Now what?<br>　　- Hemanth.HM，Power of Vanilla JS<br>　　- Burke Holland，5 Things You Should Stop Doing With jQuery<br>（完）</p>
+<h3 id="文章转载自-lt-阮一峰博客-gt"><a href="#文章转载自-lt-阮一峰博客-gt" class="headerlink" title="文章转载自&lt;阮一峰博客&gt;"></a>文章转载自<a href="http://www.ruanyifeng.com/blog/2013/05/jquery-free.html" target="_blank" rel="external">&lt;阮一峰博客&gt;</a></h3>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[一些蛋疼的JavaScript语法特性面试题]]></title>
       <url>http://yoursite.com/2016/05/23/%E4%B8%80%E4%BA%9B%E8%9B%8B%E7%96%BC%E7%9A%84JavaScript%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
       <content type="html"><![CDATA[<p>JavaScript有很多地方和我们熟知的C、Java等的编程习惯不同，这些不同会产生很多让人意想不到的事情。前段时间在知乎有人发了写Javascrtip试题，觉得挺好玩的，这里跟大家分享一下。<br><a id="more"></a></p>
@@ -293,7 +416,11 @@ getName();//1
 new Foo.getName();// 2
 new Foo().getName();// 3
 new new Foo().getName();// 3
-</code></pre>]]></content>
+</code></pre><p><code>hasOwnProperty检查该对象的属性是否是自身的，是的话返回true，不是的话返回false</code></p>
+<p>使用示例：</p>
+<pre><code>console.log(obj.hasOwnProperty(&quot;eat&quot;));
+</code></pre><p><code>__proto__</code></p>
+]]></content>
     </entry>
     
     <entry>
